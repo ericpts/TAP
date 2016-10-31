@@ -76,11 +76,37 @@ public class Arbore<ValueType extends Comparable> {
         return sb.toString();
     }
 
+    private String uniqueString() {
+      String in = toString();
+      StringBuilder sb = new StringBuilder();
+
+      Stack<Node> stack = new Stack<>();
+
+      Node now = root;
+      stack.add(now);
+
+      while(!stack.isEmpty()) {
+        now = stack.pop();
+        sb.append(now.val.toString() + " ");
+
+        if (now.R != null)
+          stack.add(now.R);
+
+        if (now.L != null)
+          stack.add(now.L);
+      }
+
+      String pre = sb.toString();
+
+      return in + "|||" + pre;
+
+    }
+
     public boolean equals(Arbore arb) {
-        return toString() == arb.toString();
+        return uniqueString().equals(arb.uniqueString());
     }
 
     public int hashCode() {
-        return toString().hashCode();
+        return uniqueString().hashCode();
     }
 }
