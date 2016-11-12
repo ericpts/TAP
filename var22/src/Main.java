@@ -34,6 +34,22 @@ public class Main {
             entries[i].weight = sc.nextInt();
         }
 
+				/* Demonstratie:
+				 * o solutie ca avea entry-urile cu > in functie de val
+				 *
+				 * presupunem ca exista o solutie S1 astfel incat exista
+				 * i, cu getVal(i) < getVal(i + 1)
+				 * deci weight[i] / length[i] < weight[i + 1] / length[i + 1]
+				 * deci weight[i] * length[i + 1] < weight[i + 1] * length[i]
+				 * w[i] * l[i + 1] < w[i + 1] * l[i]
+				 * w[i] * l[i + 1] - w[i + 1] * l[i] < 0
+				 *
+				 * Formam solutia S2 din S1, cu (i, i + 1) swap-uite
+				 * iar diferenta dintre ele va fi:
+				 * S2 - S1 = weight[i] * length[i + 1] - weight[i + 1] * length[i] < 0
+				 * deci S2 este mai buna decat S1
+				 */
+
         Arrays.sort(entries, new Comparator<Entry>() {
             @Override
             public int compare(Entry entry, Entry t1) {

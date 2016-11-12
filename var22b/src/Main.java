@@ -39,6 +39,8 @@ public class Main {
             pipelines.add(new LinkedList<>());
         }
 
+        /* Aplicam ipoteza inductiva de la var22a pe fiecare pipeline
+         */
         int at = 0;
         for(int i = 0; i < n; ++i) {
             pipelines.get(at).add(entries[i]);
