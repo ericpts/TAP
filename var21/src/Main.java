@@ -30,11 +30,34 @@ public class Main {
 
         sc.close();
 
+        /* Sortam cuburile in ordine crescatoare dupa lungime
+        asa scapam de restrictia ca un cub trebuie pus doar peste
+        un cub cu latura mai mica
+         */
         Arrays.sort(cubes, (cube, t1) -> ((Integer)cube.length).compareTo((Integer)t1.length));
 
         int lastColor = -1;
         List<Integer> chosen = new LinkedList<>();
 
+        /* Procesam cuburile crescator dupa lungime
+        (formam turnul de sus in jos)
+
+        LEMA 1:
+            solutia pentru prefixul [0..X] se va termina cu blocul X
+            Demonstratie:
+            presupunem ca solutia nu se termina in X, ci in Y < X.
+            Din ordonarea cuburilor rezulta ca length(Y) < length(X).
+            Asa ca:
+              - daca Y are culoarea diferiat de X, il punem pe X peste Y si obtinem o solutie mai buna
+              - altfel, il scoatem pe Y si il punem pe X in loc, si obtinem o solutie mai buna
+         Acesta este si principiul inductiv pe care se bazeaza rezolvarea.
+
+
+         *DACA* lungimile nu ar mai fi distincte,
+          conditia length(Y) < length(X) ar deveni
+          length(Y) <= length(X).
+          Asa ca nu am mai avea o relatie stricta de ordine.
+         */
         for(int i = 0; i < n; ++i) {
             if (cubes[i].color == lastColor)
                 chosen.remove(chosen.size() - 1);
