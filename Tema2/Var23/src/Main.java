@@ -30,6 +30,11 @@ public class Main {
         }
     }
 
+    /* Solutie:
+    sortam activitatile dupa profit (descrescator)
+    si o activitate incercam sa o asignam unui moment de timp
+    cat mai apropiat de deadline
+     */
 
     public static void main(String[] args) throws IOException {
         class Activitate {
