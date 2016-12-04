@@ -6,6 +6,9 @@ public class Main {
     static final String fin = "z.in";
     static final String fout = "z.out";
 
+    /* La fiecare apel recursiv N este redus cu 1
+    => O(N)
+     */
     static Integer solve(final int n, final int x, final int y, final int acc) {
 
         if (n == 0) {

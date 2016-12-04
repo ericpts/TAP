@@ -19,6 +19,9 @@ public class Main {
 
         int lo = 0, hi = n - 1;
         int last = -1;
+        /* La fiecare pas se injumatateste intervalul de cautare
+        => O(logN)
+         */
 
         while(lo <= hi) {
             int mid = (lo + hi) / 2;
